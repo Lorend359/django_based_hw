@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+<h1 class="mb-4">Каталог</h1>
 
-</body>
-</html>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for i in range(6) %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://picsum.photos/400?rnd={{ i }}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Товар {{ i + 1 }}</h5>
+        <p class="card-text">Краткое описание товара.</p>
+        <a href="/category" class="btn btn-outline-primary">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
